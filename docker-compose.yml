@@ -3,16 +3,16 @@ services:
   springapp:
    image: purvansh14/spring:BUILD_TAG
    restart: always
-   container_name: springbootcont
+   container_name: springbootcontainer
    environment:
-   - MONGO_DB_HOSTNAME=springdb
+   - MONGO_DB_HOSTNAME=springdbmongo
    - MONGO_DB_USERNAME=devdb
    - MONGO_DB_PASSWORD=bhavani@123
    ports:
-   - 8080:8080
+   - 9980:8080
    working_dir: /opt/app
    depends_on:
-     - springdb
+     - springdbmongo
    deploy:
      replicas: 2
      update_config:
@@ -23,20 +23,20 @@ services:
        delay: 10s
        max_attempts: 5
    networks:
-   - springappnetwork
-  springdb:
+   - springappnetwork1
+  springdbmongo:
     image: mongo
-    container_name: springdbcont
+    container_name: springdbcontainer
     environment:
     - MONGO_INITDB_ROOT_USERNAME= devdb
     - MONGO_INITDB_ROOT_PASSWORD=bhavani@123
     volumes:
-    - springvol:/data/db
+    - springvolume:/data/db
     networks:
-    - springappnetwork
+    - springappnetwork1
 volumes:
-  springvol:
+  springvolume:
     driver: local
 networks:
-  springappnetwork:
+  springappnetwork1:
     driver: bridge
