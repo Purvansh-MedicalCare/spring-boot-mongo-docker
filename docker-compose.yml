@@ -28,7 +28,7 @@ services:
     image: mongo
     container_name: springdbcontainer
     environment:
-    - MONGO_INITDB_ROOT_USERNAME= devdb
+    - MONGO_INITDB_ROOT_USERNAME=devdb
     - MONGO_INITDB_ROOT_PASSWORD=bhavani@123
     volumes:
     - springvolume:/data/db
