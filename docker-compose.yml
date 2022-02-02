@@ -1,7 +1,7 @@
 version: "3.1"
 services:
   springapp:
-   image: purvansh14/spring:BUILD_TAG
+   image: purvansh14/spring-boot-mongo:BUILD_TAG
    restart: always
    container_name: springbootcontainer
    environment:
