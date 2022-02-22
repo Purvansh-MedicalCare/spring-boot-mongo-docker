@@ -18,7 +18,7 @@ spec:
       - name: regcred1
       containers:
       - name: springcontainer
-        image: 172.31.39.211:8083/spring-boot-mongo-docker:BUILDTAG
+        image: purvansh14/spring-boot-mongo-docker:BUILDTAG
         ports:
         - containerPort: 8080
         resources:
